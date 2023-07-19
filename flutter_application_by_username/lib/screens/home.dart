@@ -33,17 +33,19 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: const Text('Start'),
+        title: const Center(child: Text('API Git Hub APP')),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            FormUser(onSearch: searchUserName),
-            Expanded(
-              child: _listUsers.isNotEmpty
-                  ? UserList(listUsers: _listUsers)
-                  : const SizedBox(),
+            Center(child: FormUser(onSearch: searchUserName)),
+            Center(
+              child: Expanded(
+                child: _listUsers.isNotEmpty
+                    ? UserList(listUsers: _listUsers)
+                    : const SizedBox(),
+              ),
             ),
           ],
         ),

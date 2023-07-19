@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_by_username/components/repository_page.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../models/user.dart';
@@ -36,7 +37,19 @@ class UserList extends StatelessWidget {
                             await launch(url);
                           }
                         },
-                        child: const Text("Open profile"))
+                        child: const Text("Open profile")),
+                    TextButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => RepositoryPage(
+                                userLogin: listUsers[index].login),
+                          ),
+                        );
+                      },
+                      child: const Text("Open Repositories"),
+                    ),
                   ],
                 ),
               ],

@@ -10,8 +10,7 @@ class Button extends StatelessWidget {
     return ElevatedButton(
       onPressed: onPressed,
       style: ButtonStyle(
-        backgroundColor:
-            MaterialStateProperty.all<Color>(Colors.deepOrangeAccent),
+        backgroundColor: MaterialStateProperty.all<Color>(Colors.green[200]!),
       ),
       child: Text(text,
           style: const TextStyle(fontSize: 18.0, color: Colors.black)),
