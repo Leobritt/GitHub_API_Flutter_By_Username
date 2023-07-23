@@ -19,7 +19,7 @@ class _HomePageState extends State<HomePage> {
 
   Future<void> searchUserName(String username) async {
     var response = await http.get(Uri.parse(
-        "https://api.github.com/search/users?q=$username&page=0&per_page=10"));
+        "https://api.github.com/search/users?q=$username&page=0&per_page=10%22"));
     var data = jsonDecode(response.body);
 
     setState(() {
@@ -40,12 +40,10 @@ class _HomePageState extends State<HomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Center(child: FormUser(onSearch: searchUserName)),
-            Center(
-              child: Expanded(
-                child: _listUsers.isNotEmpty
-                    ? UserList(listUsers: _listUsers)
-                    : const SizedBox(),
-              ),
+            Flexible(
+              child: _listUsers.isNotEmpty
+                  ? UserList(listUsers: _listUsers)
+                  : const SizedBox(),
             ),
           ],
         ),

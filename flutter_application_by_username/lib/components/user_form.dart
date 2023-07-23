@@ -37,6 +37,10 @@ class _FormUserState extends State<FormUser> {
                 }
                 return null;
               },
+              decoration: const InputDecoration(
+                border: OutlineInputBorder(),
+                hintText: 'Enter a search term',
+              ),
             ),
           ),
           Button(

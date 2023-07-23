@@ -10,7 +10,7 @@ class RepositoryPage extends StatefulWidget {
   const RepositoryPage({super.key, required this.userLogin});
 
   @override
-  _RepositoryPageState createState() => _RepositoryPageState();
+  State<RepositoryPage> createState() => _RepositoryPageState();
 }
 
 class _RepositoryPageState extends State<RepositoryPage> {
@@ -36,26 +36,29 @@ class _RepositoryPageState extends State<RepositoryPage> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.purple[100], // Cor roxo claro
-      child: ListView.builder(
-        itemBuilder: (context, index) {
-          final repository = _repositories[index];
-          return Card(
-            elevation: 5.0,
-            child: Padding(
-              padding: const EdgeInsets.all(7.0),
-              child: Column(
-                children: [
-                  ListTile(
-                    title: Text(repository.name),
-                    subtitle: Text(repository.description),
-                  ),
-                ],
+      color: Colors.purple[100],
+      child: Expanded(
+        child: ListView.builder(
+          itemBuilder: (context, index) {
+            final repository = _repositories[index];
+            return Card(
+              elevation: 5.0,
+              child: Padding(
+                padding: const EdgeInsets.all(7.0),
+                child: Column(
+                  children: [
+                    ListTile(
+                      title: Text(repository.name),
+                      subtitle: Text(repository.description),
+                    ),
+                  ],
+                ),
               ),
-            ),
-          );
-        },
-        itemCount: _repositories.length,
+            );
+          },
+          itemCount: _repositories.length,
+          shrinkWrap: true,
+        ),
       ),
     );
   }
